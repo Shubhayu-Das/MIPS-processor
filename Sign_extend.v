@@ -1,5 +1,5 @@
 //Sign extend module
-
+//  @author: Veerendra S Devaraddi
 module Sign_extend(out,in,clk);
 input[15:0] in;
 input clk;
