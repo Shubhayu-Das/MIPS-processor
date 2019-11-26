@@ -10,7 +10,7 @@ output reg [0:31]readOut;
 
 reg [0:31]memBlock[0:7];
 
-initial $readmemb("dataMem.txt", memBlock);
+  initial $readmemb("dataMem.dat", memBlock);
 
 always @(posedge clk)
 begin
