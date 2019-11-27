@@ -11,10 +11,10 @@ module PC(clk, memLoc, outputEnable, currentPointer);
 
     initial currentPointer = 0;
 
-    always@(posedge clk) begin
+    always@(posedge outputEnable) begin
         $display("OutputEnable: %d", outputEnable);
         if(outputEnable)
-            currentPointer = memLoc; 
+            currentPointer = memLoc;
 
     end
 endmodule

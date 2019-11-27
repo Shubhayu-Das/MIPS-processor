@@ -54,7 +54,7 @@ module main;
 //POST DATA MEMORY MUX
   //regWriteData defined at line 27.
   wire memToReg;
-  mux dataMemMux(dataMemOut, aluOut, memToReg, regWriteData);
+  mux dataMemMux(aluOut, dataMemOut,  memToReg, regWriteData);
 //PC + 4 adder
   //PCOut defined at line 16.
   reg [31:0] change;
@@ -72,7 +72,7 @@ module main;
   wire branchEnable;
   and (branchAndZero, branchEnable, aluZero);
   wire [31:0]branchMuxOut;
-  mux branchMux(PCplusFour, branchaddress, branchAndZero, branchMuxOut);
+  mux branchMux(PCplusFour, branchpc, branchAndZero, branchMuxOut);
 //jump mux
 
   wire [31:0]jumpAddress;
@@ -81,12 +81,12 @@ module main;
   wire jumpEnable;
   mux jumpMux(branchMuxOut, jumpAddress, jumpEnable, PCIn);
 
-//CONTROL UNIT  
+//CONTROL UNIT
   control controlUnit(clk, IMemOut[31:26], regDst, jumpEnable, branchEnable, dataMemReadEnable, memToReg, aluOp, dataMemWriteEnable, aluSrc, regWriteEnable, PCEnable);
 
   initial begin
     $dumpfile("test.vcd");
     $dumpvars(0, main);
-    #2000 $finish;
+    #200000 $finish;
   end
 endmodule

@@ -43,23 +43,24 @@ begin
   if(counter == 0) // INSTRUCTION DECODE STAGE ////////////////////////////////
   begin
     pcupdate = 0;
-    jump = 0;
-    branch = 0;
-    aluop = 3;
-    alusrc = 0;
-    memread = 0;
-    memwrite = 0;
-    memtoreg = 0;
-    regwrite = 0;
-    regdst = 0;
     case(opcode)
       6'b000000 : aluop = 2; // R-FORMAT has wb
-      6'b001000 : begin //ADDI has wb
-      alusrc = 1;
-      aluop = 0;
+      6'b001000:
+      begin //ADDI has wb
+        alusrc = 1;
+        aluop = 0;
       end
-      6'b100011: aluop = 0; //LW has wb
-      6'b101011: aluop = 0; //SW no
+      6'b100011:
+      begin
+        $display("REEE%b", opcode);
+        aluop = 0;
+        alusrc = 1;
+      end //LW has wb
+      6'b101011:
+      begin
+        aluop = 0;
+        alusrc = 1;
+      end //SW no
       6'b000100: //BEQ no
       begin
         branch = 1;
@@ -106,6 +107,18 @@ begin
 
     ///////END OF WRITEBACK STAGE////////////////////////////////////
     ///////PC UPDATE STAGE//////////////////////////////////////////
-  else if(counter == 4) pcupdate = 1;
+  else if(counter == 4)
+  begin
+    pcupdate = 1;
+    jump = 0;
+    branch = 0;
+    aluop = 3;
+    alusrc = 0;
+    memread = 0;
+    memwrite = 0;
+    memtoreg = 0;
+    regwrite = 0;
+    regdst = 0;
+  end
 end
 endmodule

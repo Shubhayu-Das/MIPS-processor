@@ -16,6 +16,7 @@ begin
     else if(fn == 6'b100101) out = 1;
     else if(fn == 6'b101010) out = 4;
   end
+  else out = 5;
 end
 
 endmodule
