@@ -1,7 +1,5 @@
-module adder(A, B, Cin, out, Cout);
+module adder(A, B, out);
     input [31:0]A, B;
-    input Cin;
     output [31:0]out;
-    output Cout;
-    assign {Cout, out} = A+B+Cin;
+    assign out = A+B;
 endmodule

@@ -1,0 +1,296 @@
+$date
+	Wed Nov 27 00:44:00 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module main $end
+$var wire 1 ! PCEnable $end
+$var wire 2 " aluOp [1:0] $end
+$var wire 1 # aluSrc $end
+$var wire 1 $ branchAndZero $end
+$var wire 1 % branchEnable $end
+$var wire 1 & dataMemReadEnable $end
+$var wire 1 ' dataMemWriteEnable $end
+$var wire 1 ( jumpEnable $end
+$var wire 1 ) memToReg $end
+$var wire 1 * regDst $end
+$var wire 1 + regWriteEnable $end
+$var wire 32 , signExtendOut [31:0] $end
+$var wire 32 - regWriteData [31:0] $end
+$var wire 5 . regWriteAddress [4:0] $end
+$var wire 32 / readData2 [31:0] $end
+$var wire 32 0 readData1 [31:0] $end
+$var wire 32 1 jumpAddress [31:0] $end
+$var wire 32 2 dataMemOut [31:0] $end
+$var wire 32 3 branchpc [31:0] $end
+$var wire 32 4 branchaddress [31:0] $end
+$var wire 32 5 branchMuxOut [31:0] $end
+$var wire 1 6 aluZero $end
+$var wire 32 7 aluSecondInput [31:0] $end
+$var wire 32 8 aluOut [31:0] $end
+$var wire 3 9 aluControl3bit [2:0] $end
+$var wire 32 : PCplusFour [31:0] $end
+$var wire 32 ; PCOut [31:0] $end
+$var wire 32 < PCIn [31:0] $end
+$var wire 32 = IMemOut [31:0] $end
+$var reg 32 > change [31:0] $end
+$var reg 1 ? clk $end
+$scope module PCPlusFourAdder $end
+$var wire 32 @ B [31:0] $end
+$var wire 32 A out [31:0] $end
+$var wire 32 B A [31:0] $end
+$upscope $end
+$scope module aluController $end
+$var wire 2 C aluop [0:1] $end
+$var wire 6 D fn [0:5] $end
+$var reg 3 E out [0:2] $end
+$upscope $end
+$scope module branchAddressAdder $end
+$var wire 32 F B [31:0] $end
+$var wire 32 G out [31:0] $end
+$var wire 32 H A [31:0] $end
+$upscope $end
+$scope module branchMux $end
+$var wire 32 I A [31:0] $end
+$var wire 1 $ select $end
+$var wire 32 J out [31:0] $end
+$var wire 32 K B [31:0] $end
+$upscope $end
+$scope module branchleftshift $end
+$var wire 32 L in [31:0] $end
+$var reg 32 M out [31:0] $end
+$upscope $end
+$scope module dataMem $end
+$var wire 3 N adr [0:2] $end
+$var wire 1 ? clk $end
+$var wire 1 & readPin $end
+$var wire 1 ' writePin $end
+$var wire 32 O writeIn [0:31] $end
+$var reg 32 P readOut [0:31] $end
+$upscope $end
+$scope module dataMemMux $end
+$var wire 32 Q A [31:0] $end
+$var wire 1 ) select $end
+$var wire 32 R out [31:0] $end
+$var wire 32 S B [31:0] $end
+$upscope $end
+$scope module instructionMemory $end
+$var wire 1 ? clk $end
+$var wire 32 T address [31:0] $end
+$var reg 32 U instruction [31:0] $end
+$upscope $end
+$scope module jumpMux $end
+$var wire 32 V A [31:0] $end
+$var wire 32 W B [31:0] $end
+$var wire 1 ( select $end
+$var wire 32 X out [31:0] $end
+$upscope $end
+$scope module mainALU $end
+$var wire 1 ? clk $end
+$var wire 3 Y control [0:2] $end
+$var wire 32 Z in2 [0:31] $end
+$var wire 32 [ in1 [0:31] $end
+$var reg 32 \ out [0:31] $end
+$var reg 1 6 zero $end
+$upscope $end
+$scope module postRegisterMux $end
+$var wire 1 # select $end
+$var wire 32 ] out [31:0] $end
+$var wire 32 ^ B [31:0] $end
+$var wire 32 _ A [31:0] $end
+$upscope $end
+$scope module preRegisterMux $end
+$var wire 5 ` A [4:0] $end
+$var wire 5 a B [4:0] $end
+$var wire 1 * select $end
+$var wire 5 b out [4:0] $end
+$upscope $end
+$scope module programCounter $end
+$var wire 1 ? clk $end
+$var wire 32 c memLoc [31:0] $end
+$var wire 1 ! outputEnable $end
+$var reg 32 d currentPointer [31:0] $end
+$upscope $end
+$scope module registerFile $end
+$var wire 1 ? clk $end
+$var wire 5 e readRegister1 [4:0] $end
+$var wire 5 f readRegister2 [4:0] $end
+$var wire 1 + regWrite $end
+$var wire 32 g writeData [31:0] $end
+$var wire 5 h writeRegister [4:0] $end
+$var reg 32 i readData1 [31:0] $end
+$var reg 32 j readData2 [31:0] $end
+$var integer 32 k i [31:0] $end
+$upscope $end
+$scope module signExtend $end
+$var wire 16 l in [15:0] $end
+$var reg 32 m out [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx m
+bx l
+b100000 k
+bx j
+bx i
+bx h
+bx g
+bx f
+bx e
+bx d
+bx c
+bx b
+bx a
+bx `
+bx _
+bx ^
+bx ]
+bx \
+bx [
+bx Z
+bx Y
+bx X
+bx00xxxxxxxxxxxxxxxxxxxxxxxxxx W
+bx V
+bx U
+bx T
+bx S
+bx R
+bx Q
+bx P
+bx O
+bx N
+bx M
+bx L
+bx K
+bx J
+bx I
+bx H
+bx G
+bx F
+bx E
+bx D
+bz C
+bx B
+bx A
+b1 @
+0?
+b1 >
+bx =
+bx <
+bx ;
+bx :
+bx 9
+bx 8
+bx 7
+x6
+bx 5
+bx 4
+bx 3
+bx 2
+bx00xxxxxxxxxxxxxxxxxxxxxxxxxx 1
+bx 0
+bx /
+bx .
+bx -
+bx ,
+z+
+z*
+z)
+z(
+z'
+z&
+z%
+x$
+z#
+bz "
+z!
+$end
+#5
+0$
+06
+1?
+#10
+0?
+#15
+1?
+#20
+0?
+#25
+1?
+#30
+0?
+#35
+1?
+#40
+0?
+#45
+1?
+#50
+0?
+#55
+1?
+#60
+0?
+#65
+1?
+#70
+0?
+#75
+1?
+#80
+0?
+#85
+1?
+#90
+0?
+#95
+1?
+#100
+0?
+#105
+1?
+#110
+0?
+#115
+1?
+#120
+0?
+#125
+1?
+#130
+0?
+#135
+1?
+#140
+0?
+#145
+1?
+#150
+0?
+#155
+1?
+#160
+0?
+#165
+1?
+#170
+0?
+#175
+1?
+#180
+0?
+#185
+1?
+#190
+0?
+#195
+1?
+#200
+0?

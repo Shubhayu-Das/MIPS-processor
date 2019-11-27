@@ -9,8 +9,12 @@ module PC(clk, memLoc, outputEnable, currentPointer);
     input [31:0]memLoc;
     output reg[31:0] currentPointer;
 
+    initial currentPointer = 0;
+
     always@(posedge clk) begin
+        $display("OutputEnable: %d", outputEnable);
         if(outputEnable)
             currentPointer = memLoc; 
+
     end
 endmodule

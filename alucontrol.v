@@ -21,32 +21,32 @@ end
 endmodule
 
 
-module tb_alucon;
+// module tb_alucon;
 
-reg [0:1] aluop;
-reg [0:5] fn;
-wire [0:2]out;
+// reg [0:1] aluop;
+// reg [0:5] fn;
+// wire [0:2]out;
 
-alucontrol uut(aluop, fn, out);
+// alucontrol uut(aluop, fn, out);
 
-initial begin
-  $dumpfile("alucontrol.vcd");
-  $dumpvars(0, tb_alucon);
+// initial begin
+//   $dumpfile("alucontrol.vcd");
+//   $dumpvars(0, tb_alucon);
 
-  aluop = 0;
-  #10;
-  aluop = 1;
-  #10;
-  aluop = 2;
-  fn = 6'b100000;
-  #10;
-  fn = 6'b100010;
-  #10;
-  fn = 6'b100100;
-  #10;
-  fn = 6'b100101;
-  #10;
-  fn = 6'b101010;
-  #10;
-end
-endmodule
+//   aluop = 0;
+//   #10;
+//   aluop = 1;
+//   #10;
+//   aluop = 2;
+//   fn = 6'b100000;
+//   #10;
+//   fn = 6'b100010;
+//   #10;
+//   fn = 6'b100100;
+//   #10;
+//   fn = 6'b100101;
+//   #10;
+//   fn = 6'b101010;
+//   #10;
+// end
+// endmodule

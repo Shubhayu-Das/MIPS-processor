@@ -16,19 +16,19 @@ always @(*) begin
 end
 endmodule
 
-module tb();
-reg[15:0] in;
-wire[31:0] out;
+// module tb();
+// reg[15:0] in;
+// wire[31:0] out;
 
-Sign_extend uut(out,in);
+// Sign_extend uut(out,in);
 
-initial begin
-    $dumpfile("output.vcd");
-    $dumpvars(0,tb);
-    in=16'd1;
-    #1 in=16'd12;
-    #1 in=16'd65535;
-    #1 in=16'd0; 
+// initial begin
+//     $dumpfile("output.vcd");
+//     $dumpvars(0,tb);
+//     in=16'd1;
+//     #1 in=16'd12;
+//     #1 in=16'd65535;
+//     #1 in=16'd0; 
 
-end
-endmodule
+// end
+// endmodule

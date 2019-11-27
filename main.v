@@ -1,4 +1,5 @@
 `include "adder.v"
+`include "syncAdder.v"
 `include "alu.v"
 `include "alucontrol.v"
 `include "control.v"
@@ -8,11 +9,11 @@
 `include "registers.v"
 `include "Sign_extend.v"
 `include "leftshift.v"
-`include "mux5bit.v"
 `include "dataMem.v"
 module main;
 //CLOCK////////////////
   reg clk; initial clk = 0; always #5 clk = ~clk;
+
 //PROGRAM COUNTER//////
   wire [31:0]PCIn;
   wire [31:0]PCOut;
@@ -21,6 +22,7 @@ module main;
 //INSTRUCTION MEMORY//
   wire [31:0]IMemOut;
   InstMem instructionMemory(clk, PCOut, IMemOut);
+
 //REGISTER FILE//////
   wire [31:0]readData1;
   wire [31:0]readData2;
@@ -28,7 +30,7 @@ module main;
   wire [4:0]regWriteAddress;
   wire [31:0] regWriteData;
   wire regDst;
-  mux5bit preRegisterMux(IMemOut[20:16], IMemOut[15:11],regDst,regWriteAddress);
+  mux#(.SIZE(5)) preRegisterMux(IMemOut[20:16], IMemOut[15:11],regDst,regWriteAddress);
   Registers registerFile(readData1,readData2,IMemOut[25:21],IMemOut[20:16],regWriteEnable, regWriteAddress, regWriteData, clk);
 //SIGN EXTEND///////
   wire [31:0]signExtendOut;
@@ -55,10 +57,10 @@ module main;
   mux dataMemMux(dataMemOut, aluOut, memToReg, regWriteData);
 //PC + 4 adder
   //PCOut defined at line 16.
-  reg [31:0] plusFour;
-  initial plusFour = 4;
+  reg [31:0] change;
+  initial change = 1;
   wire [31:0] PCplusFour;
-  adder PCPlusFourAdder(PCOut, plusFour, PCplusFour);
+  syncAdder PCPlusFourAdder(clk, PCOut, change, PCplusFour);
 //Branch left shift
   wire[31:0] branchaddress;
   leftshift branchleftshift(branchaddress,signExtendOut);
@@ -75,7 +77,16 @@ module main;
 
   wire [31:0]jumpAddress;
   assign jumpAddress[31:28] = PCplusFour[31:28];
-  assign jumpAddress[27:0] = IMemOut[25:0]<<2;
+  assign jumpAddress[27:0] = IMemOut[25:0];//<<2;
   wire jumpEnable;
   mux jumpMux(branchMuxOut, jumpAddress, jumpEnable, PCIn);
+
+//CONTROL UNIT  
+  control controlUnit(clk, IMemOut[31:26], regDst, jumpEnable, branchEnable, dataMemReadEnable, memToReg, aluOp, dataMemWriteEnable, aluSrc, regWriteEnable, PCEnable);
+
+  initial begin
+    $dumpfile("test.vcd");
+    $dumpvars(0, main);
+    #2000 $finish;
+  end
 endmodule

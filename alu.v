@@ -41,56 +41,56 @@ end
 endmodule
 
 
-module tb_alu;
+// module tb_alu;
 
-reg [0:31]in1;
-reg [0:31]in2;
-reg [0:2]control;
-reg clk;
-wire [0:31]out;
-wire zero;
+// reg [0:31]in1;
+// reg [0:31]in2;
+// reg [0:2]control;
+// reg clk;
+// wire [0:31]out;
+// wire zero;
 
-alu uut(clk, in1, in2, control, out, zero);
+// alu uut(clk, in1, in2, control, out, zero);
 
-always  #3 clk = ~clk;
-initial
-begin
-  $dumpfile("alu_test.vcd");
-  $dumpvars(0, tb_alu);
-  clk = 0;
-  control = 0;
-  in1 = 7;
-  in2 = 3;
-  #6;
-  in1 = 8;
-  in2 = 3;
-  #6;
-  control = 1;
-  in1 = 24;
-  in2 = 6;
-  #6;
-  in1 = 6;
-  in2 = 2;
-  #6;
-  control = 2;
-  in1 = 11;
-  in2 = 12;
-  #6;
-  control = 3;
-  in1 = 1;
-  in2 = 13;
-  #6;
-  control = 3;
-  in1 = 12;
-  in2 = 12;
-  #6;
-  control = 4;
-  in1 = 3;
-  in2 = 4;
-  #6
-  in1 = 5;
-  in2= 3;
-  #6;
-end
+// always  #3 clk = ~clk;
+// initial
+// begin
+//   $dumpfile("alu_test.vcd");
+//   $dumpvars(0, tb_alu);
+//   clk = 0;
+//   control = 0;
+//   in1 = 7;
+//   in2 = 3;
+//   #6;
+//   in1 = 8;
+//   in2 = 3;
+//   #6;
+//   control = 1;
+//   in1 = 24;
+//   in2 = 6;
+//   #6;
+//   in1 = 6;
+//   in2 = 2;
+//   #6;
+//   control = 2;
+//   in1 = 11;
+//   in2 = 12;
+//   #6;
+//   control = 3;
+//   in1 = 1;
+//   in2 = 13;
+//   #6;
+//   control = 3;
+//   in1 = 12;
+//   in2 = 12;
+//   #6;
+//   control = 4;
+//   in1 = 3;
+//   in2 = 4;
+//   #6
+//   in1 = 5;
+//   in2= 3;
+//   #6;
+// end
 
-endmodule
+// endmodule

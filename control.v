@@ -37,6 +37,7 @@ end
 
 always @(posedge clk)
 begin
+  $display("Counter: %d", counter);
   pcupdate = 0;
   counter = (counter+1)%5;
   if(counter == 0) // INSTRUCTION DECODE STAGE ////////////////////////////////
