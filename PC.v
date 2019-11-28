@@ -12,7 +12,6 @@ module PC(clk, memLoc, outputEnable, currentPointer);
     initial currentPointer = 0;
 
     always@(posedge outputEnable) begin
-        $display("OutputEnable: %d", outputEnable);
         if(outputEnable)
             currentPointer = memLoc;
 

@@ -19,7 +19,6 @@ always @(posedge clk)
 begin
   if(writePin == 1) begin
     memBlock[adr] = writeIn;
-    $display("Address %d", adr);
     //  File output
     file = $fopen("dataMem.dat", "w");
     for (i = 0; i<8; i=i+1)

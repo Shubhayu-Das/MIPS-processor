@@ -37,25 +37,16 @@ end
 
 always @(posedge clk)
 begin
-  $display("Counter: %d", counter);
   pcupdate = 0;
   counter = (counter+1)%5;
   if(counter == 0) // INSTRUCTION DECODE STAGE ////////////////////////////////
   begin
     pcupdate = 0;
+    aluop = 0;
     case(opcode)
       6'b000000 : aluop = 2; // R-FORMAT has wb
-      6'b001000:
-      begin //ADDI has wb
-        alusrc = 1;
-        aluop = 0;
-      end
-      6'b100011:
-      begin
-        $display("REEE%b", opcode);
-        aluop = 0;
-        alusrc = 1;
-      end //LW has wb
+      6'b001000: alusrc = 1; //ADDI has wb
+      6'b100011: alusrc = 1; //LW has wb
       6'b101011:
       begin
         aluop = 0;

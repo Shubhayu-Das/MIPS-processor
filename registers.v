@@ -16,6 +16,7 @@ initial begin
     end
 end
 always @(posedge clk) begin
+    $display("%d %d %d %d", registers[1], registers[2], registers[8], registers[9]);
     readData1 <= registers[readRegister1];
     readData2 <= registers[readRegister2];
 end
