@@ -1,3 +1,7 @@
+/*
+  * @author: Aniruddh
+*/
+
 module alucontrol(aluop, fn, out);
 
 input [0:1]aluop;

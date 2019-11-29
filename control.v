@@ -1,14 +1,17 @@
-///THIS MIPS ARCHITECTURE SUPPORTS THE FOLLOWING:
-//ADD
-//SUB
-//ADDI
-//LW
-//SW
-//AND
-//OR
-//BEQ
-//SLT
-//J
+/*
+  * @author: all
+  * THIS MIPS ARCHITECTURE SUPPORTS THE FOLLOWING:
+  * ADD
+  * SUB
+  * ADDI
+  * LW
+  * SW
+  * AND
+  * OR
+  * BEQ
+  * SLT
+J
+*/
 module control(clk, opcode, regdst, jump, branch, memread, memtoreg, aluop, memwrite, alusrc, regwrite, pcupdate);
 
 input clk;

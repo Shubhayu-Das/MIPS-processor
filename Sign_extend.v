@@ -1,4 +1,7 @@
-//Sign extend module
+/*
+    * Sign extend module
+    * @author: Veerendra
+*/
 
 module Sign_extend(out,in);
 input[15:0] in;

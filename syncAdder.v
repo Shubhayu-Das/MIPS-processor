@@ -1,3 +1,5 @@
+// @author: all
+
 module syncAdder(clk, A, B, out);
     input clk;
     input [31:0]A, B;

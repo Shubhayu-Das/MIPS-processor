@@ -1,4 +1,8 @@
-//registers module
+/*
+    * registers module
+    * @author: Veerendra
+*/
+
 module Registers(readData1,readData2,readRegister1,readRegister2,regWrite,writeRegister,writeData,clk);
 input[4:0] readRegister1,readRegister2,writeRegister;
 input regWrite,clk;

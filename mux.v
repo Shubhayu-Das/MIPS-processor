@@ -1,3 +1,6 @@
+/*
+    *   @author: Shubhayu Das
+*/
 module mux#(parameter SIZE = 32)(A, B, select, out);
 
 input [SIZE-1:0]A, B;

@@ -4,6 +4,7 @@
     * Simply takes in a memory location value and gives it out when output is enabled
     * Output enable is required because it's non-pipelined architecture here
 */
+
 module PC(clk, memLoc, outputEnable, currentPointer);
     input outputEnable, clk;
     input [31:0]memLoc;

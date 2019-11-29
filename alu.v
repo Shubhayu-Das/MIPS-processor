@@ -1,6 +1,9 @@
+/*
+  * @author: Aniruddh
+  * This ALU acceps a three-bit control, two 32-bit inputs and a clock.
+  * It outputs a 32-bit output and a single bit to indicate if the output is zero.
+*/
 
-//This ALU acceps a three-bit control, two 32-bit inputs and a clock.
-//It outputs a 32-bit output and a single bit to indicate if the output is zero.
 module alu(clk, in1, in2, control, out, zero);
 
 input clk;

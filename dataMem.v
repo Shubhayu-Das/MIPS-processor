@@ -1,3 +1,7 @@
+/*
+  * @author: Aniruddh
+*/
+
 module dataMemory(clk, adr, writeIn, readOut, writePin, readPin);
 
 input clk;
